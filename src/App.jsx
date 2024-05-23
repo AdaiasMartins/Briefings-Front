@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import './App.css'
+import Briefin from './Components/Briefin';
 
 function App() {
 
@@ -9,6 +10,7 @@ function App() {
         <header>
           <h1>Gestor de Briefins</h1>
         </header>
+        <Briefin />
       </div>
     </>
   )
