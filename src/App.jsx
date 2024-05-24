@@ -8,7 +8,7 @@ function App() {
     <>
       <div className='App'>
         <header>
-          <h1>Gestor de Briefins</h1>
+          <h1>Gestor de Briefings</h1>
         </header>
         <Briefin />
       </div>
