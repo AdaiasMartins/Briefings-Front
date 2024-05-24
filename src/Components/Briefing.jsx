@@ -1,27 +1,45 @@
+import { useState, useEffect } from 'react';
 import './Briefin.css';
 
 const Briefing = () => {
     
+  const [briefings, setBriefings] = useState ([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch('http://localhost:3000/briefins');
+        const data = await response.json();
+        setBriefings(data);
+      } catch (error) {
+        console.error('Failed to fetch data:', error);
+      }
+    };
+  
+    fetchData();
+  }, []);
 
   return (
-  <div className='BriefingContainer'>
-
-    <div className='BriefingHeader'>
-        <h1>Briefing name</h1>
+    <div className='BriefingsListContainer'>
+        {briefings.map(briefing => (
+          <div key={briefing.id} className='BriefingContainer'>
+            <div className='BriefingHeader'>
+                <h1>{briefing.nome}</h1>
+            </div>
+            <div className='BriefingContent'>
+                <p>{briefing.descricao}</p>
+            </div>
+            <div className='BriefingState'>
+                <h2>{briefing.estado}</h2>
+            </div>
+            <div className='BriefingEditButton'>
+              <button>
+                <i className="bi bi-pen"></i>
+              </button>
+            </div>
+          </div>
+        ))}
     </div>
-    <div className='BriefingContent'>
-        <p>Esta é uma descrição de exemplo para testar o alinhamento do texto</p>
-    </div>
-    <div className='BriefingState'>
-        <h2>Briefing state</h2>
-    </div>
-    <div className='BriefingEditButton'>
-      <button>
-        <i className="bi bi-pen"></i>
-      </button>
-    </div>
-  </div>
-
-  );
+);
 }
 export default Briefing;
