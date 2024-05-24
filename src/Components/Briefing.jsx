@@ -1,11 +1,10 @@
-import React from 'react';
 import './Briefin.css';
 
-const Briefin = () => {
+const Briefing = () => {
     
 
   return (
-<div className='BriefingContainer'>
+  <div className='BriefingContainer'>
 
     <div className='BriefingHeader'>
         <h1>Briefing name</h1>
@@ -21,8 +20,8 @@ const Briefin = () => {
         <i className="bi bi-pen"></i>
       </button>
     </div>
-</div>
+  </div>
 
   );
 }
-export default Briefin;
+export default Briefing;
