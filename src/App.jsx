@@ -1,6 +1,6 @@
 
 import './App.css'
-import Briefing from './Components/Briefing';
+import Briefing from './Components/BriefingsListComponent/Briefing';
 
 function App() {
 
