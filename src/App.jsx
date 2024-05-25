@@ -1,6 +1,6 @@
 
 import './App.css'
-import Briefing from './Components/Briefing';
+import AppRoutes from './Routes';
 
 function App() {
 
@@ -10,7 +10,7 @@ function App() {
         <header>
           <h1>Gestor de Briefings</h1>
         </header>
-        <Briefing />
+        <AppRoutes/>
       </div>
     </>
   )
