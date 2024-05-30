@@ -13,7 +13,7 @@ const EditBriefing = () => {
                     <div className='EditFormState'>
                         <input type="text" name="estado" placeholder="Estado" />
                     </div>
-                    <div>
+                    <div className='EditFormButton'>
                         <button type="submit">Salvar</button>
                     </div>
                 </form>
