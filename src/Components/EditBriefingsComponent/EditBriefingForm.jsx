@@ -21,18 +21,26 @@ const EditBriefingForm = () => {
         fetchData();
     }, [id]);
 
+    const handleChange = (event) => {
+        const { name, value } = event.target;
+        setBriefing(prevState => ({
+            ...prevState,
+            [name]: value
+        }));
+    };
+
     return (
         <div className="EditBriefingContainer">
             {briefing && (
                 <form className='EditBriefingForm'>
                     <div className='EditFormName'>
-                        <input type="text" name="nome" value={briefing.nome} />
+                        <input type="text" name="nome" value={briefing.nome}  onChange={handleChange} />
                     </div>
                     <div className='EditFormContent'>
-                        <input type="text" name="descricao" value={briefing.descricao} />
+                        <input type="text" name="descricao" value={briefing.descricao} onChange={handleChange} />
                     </div>
                     <div className='EditFormState'>
-                        <input type="text" name="estado" value={briefing.estado} />
+                        <input type="text" name="estado" value={briefing.estado} onChange={handleChange} />
                     </div>
                     <div className='EditFormButton'>
                         <button type="submit">Salvar</button>
