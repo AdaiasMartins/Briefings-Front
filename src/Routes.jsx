@@ -1,4 +1,4 @@
-import EditBriefing from "./Components/EditBriefingsComponent/EditBriefing.jsx";
+import EditBriefingForm from "./Components/EditBriefingsComponent/EditBriefingForm.jsx";
 import Briefing from "./Components/ListBriefinComponent/Briefing"
 import {BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
@@ -7,7 +7,7 @@ const AppRoutes = () => {
         <Router>
             <Routes>
                 <Route path="/" element={<Briefing />} />
-                <Route path="/edit" element={<EditBriefing />} />
+                <Route path="/edit/:id" element={<EditBriefingForm />} />
             </Routes>
         </Router>
     )

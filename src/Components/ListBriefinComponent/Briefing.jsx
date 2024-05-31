@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import './Briefin.css';
+import { Link } from 'react-router-dom';
 
 const Briefing = () => {
     
@@ -34,7 +35,9 @@ const Briefing = () => {
             </div>
             <div className='BriefingEditButton'>
               <button>
-                <i className="bi bi-pen"></i>
+                <Link to={`/edit/${briefing.id}`}>
+                  <i className="bi bi-pen"></i>
+                </Link>
               </button>
             </div>
           </div>
