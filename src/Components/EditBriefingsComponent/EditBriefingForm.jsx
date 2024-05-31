@@ -3,10 +3,8 @@ import { useParams } from 'react-router-dom';
 import './EditBriefingForm.css';
 
 const EditBriefingForm = () => {
-
     const { id } = useParams();
-    console.log('ID:', id);
-    const [briefing, setBriefing] = useState();
+    const [briefing, setBriefing] = useState({ nome: '', descricao: '', estado: '' });
 
     useEffect(() => {
         const fetchData = async () => {
@@ -29,10 +27,30 @@ const EditBriefingForm = () => {
         }));
     };
 
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+        try {
+            const response = await fetch(`http://localhost:3000/briefin/${id}`, {
+                method: 'PATCH',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(briefing)
+            });
+            const updatedBriefing = await response.json();
+            if (!response.ok) {
+                throw new Error(updatedBriefing.message || 'Failed to update briefing');
+            }
+            setBriefing(updatedBriefing);
+        } catch (error) {
+            console.error('Error updating briefing:', error);
+        }
+    };
+
     return (
         <div className="EditBriefingContainer">
             {briefing && (
-                <form className='EditBriefingForm'>
+                <form className='EditBriefingForm' onSubmit={handleSubmit}>
                     <div className='EditFormName'>
                         <input type="text" name="nome" value={briefing.nome}  onChange={handleChange} />
                     </div>
@@ -45,7 +63,8 @@ const EditBriefingForm = () => {
                     <div className='EditFormButton'>
                         <button type="submit">Salvar</button>
                     </div>
-                </form>)}
+                </form>
+            )}
         </div>
     );
 }
