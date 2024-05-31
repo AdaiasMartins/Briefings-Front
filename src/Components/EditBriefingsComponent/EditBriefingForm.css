@@ -13,7 +13,7 @@
 }
 
 .EditBriefingContainer .EditBriefingForm {
-    padding-top: 2vh;
+    padding-top: 4vh;
     padding-left: 5vh;
     font-size: 50px;
     color: #DEDCFF;
@@ -24,11 +24,17 @@
     background-color: #ececee;
 }
 
+.EditBriefingContainer .EditBriefingForm .EditFormName {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
 
 .EditBriefingContainer .EditBriefingForm .EditFormName input {
     width: 30vh;
     height: 5vh;
-    
     border-radius: 5px;
     border: none;
     margin-bottom: 20px;
@@ -36,6 +42,25 @@
     font-size: 20px;
 }
 
+.EditBriefingContainer .EditBriefingForm h2{
+    background-color: #ececee;
+}
+
+.EditBriefingContainer .EditBriefingForm .EditFormName h2 {
+    width: 30vh;
+    height: 5vh;
+    border-radius: 5px;
+    border: none;
+    margin-bottom: 20px;
+    padding-left: 10px;
+    font-size: 18px;
+    align-self: center;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color:black;
+}
 .EditBriefingContainer .EditBriefingForm .EditFormContent input {
     width: 70vh;
     height: 25vh;
@@ -61,9 +86,22 @@
     height: 5vh;
     border-radius: 5px;
     border: none;
+    background-color:rgb(72, 72, 241);
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    margin-right: 1vh;
+}
+
+.EditBriefingContainer .EditBriefingForm .EditFormButton .trashFillbutton {
+    width: 5vh;
+    height: 5vh;
+    border-radius: 5px;
+    border: none;
     background-color: rgb(233, 59, 59);
     color: white;
     font-size: 20px;
     cursor: pointer;
+    margin-right: 1.5vh;
 }
 

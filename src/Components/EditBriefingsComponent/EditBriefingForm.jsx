@@ -53,6 +53,7 @@ const EditBriefingForm = () => {
                 <form className='EditBriefingForm' onSubmit={handleSubmit}>
                     <div className='EditFormName'>
                         <input type="text" name="nome" value={briefing.nome}  onChange={handleChange} />
+                        <h2>{new Date(briefing.data).toLocaleDateString()}</h2>
                     </div>
                     <div className='EditFormContent'>
                         <input type="text" name="descricao" value={briefing.descricao} onChange={handleChange} />
@@ -62,6 +63,9 @@ const EditBriefingForm = () => {
                     </div>
                     <div className='EditFormButton'>
                         <button type="submit">Salvar</button>
+                        <button className='trashFillbutton'>
+                            <i class="bi bi-trash-fill"></i>
+                        </button>
                     </div>
                 </form>
             )}
