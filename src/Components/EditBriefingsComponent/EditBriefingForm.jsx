@@ -1,9 +1,10 @@
 import { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import './EditBriefingForm.css';
 
 const EditBriefingForm = () => {
     const { id } = useParams();
+    const navigate = useNavigate();
     const [briefing, setBriefing] = useState({ nome: '', descricao: '', estado: '' });
 
     useEffect(() => {
@@ -47,6 +48,23 @@ const EditBriefingForm = () => {
         }
     };
 
+    const handleDelete = async () => {
+        if (window.confirm('Tem certeza que deseja deletar este briefing?')) {
+            try {
+                const response = await fetch(`http://localhost:3000/briefin/${id}`, {
+                    method: 'DELETE',
+                });
+                if (response.ok) {
+                    navigate('/');
+                } else {
+                    throw new Error('Failed to delete briefing');
+                }
+            } catch (error) {
+                console.error('Error deleting briefing:', error);
+            }
+        }
+    };
+
     return (
         <div className="EditBriefingContainer">
             {briefing && (
@@ -63,7 +81,7 @@ const EditBriefingForm = () => {
                     </div>
                     <div className='EditFormButton'>
                         <button type="submit">Salvar</button>
-                        <button className='trashFillbutton'>
+                        <button type="button" className='trashFillbutton' onClick={handleDelete}>
                             <i class="bi bi-trash-fill"></i>
                         </button>
                     </div>
